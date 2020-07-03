@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_food"
+        android:layout_width="130dp"
+        android:layout_height="130dp"/>
+
+    <TextView
+        android:id="@+id/name_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_food"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="@string/app_name" />
+    
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_food"
+        android:layout_toRightOf="@id/image_food"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:textStyle="bold"
+        android:text="50.000 VNĐ"/>
+
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_food"
+        android:layout_below="@id/name_food"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_number_order"/>
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:background="@drawable/circle_button"
+            android:layout_toLeftOf="@+id/tv_number"
+            android:text="@string/btn_add"
+            android:layout_marginRight="15dp"
+            android:textSize="15dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/btn_minus"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginRight="15dp"
+            android:text="0"/>
+
+        <Button
+            android:id="@+id/btn_minus"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:background="@drawable/circle_button"
+            android:layout_alignParentRight="true"
+            android:text="@string/btn_minus"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

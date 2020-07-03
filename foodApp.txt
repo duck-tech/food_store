@@ -1,0 +1,8 @@
+food store
+- users: 
+ * đăng nhập, đăng ký
+ * đặt món ăn
+- admin (nhân viên)
+ *thêm sửa xóa cập nhập ăn
+ * lưu thông tin khách hàng
+ * xem thông tin các đơn hàng. báo cáo danh thu
