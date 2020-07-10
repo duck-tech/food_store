@@ -4,6 +4,21 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="string_number_order">Số lượng đặt:</string>
-    <string name="btn_add">+</string>
+    <string name="btn_add">Đặt món</string>
     <string name="btn_minus">-</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <string name="phone">Số điện thoại</string>
+    <string name="input_name">Tên nhân viên</string>
+    <string name="output_usename">Tên tài khoản</string>
+    <string name="output_password">Mật khẩu</string>
+    <string name="output_name">Họ và tên</string>
+    <string name="output_phone">Số điện thoại</string>
+    <string name="btn_registration">Đăng ký</string>
+    <string name="total">Tổng tiền:</string>
+    <string name="btn_sum">+</string>
+    <string-array name="status_array">
+        <item>Chưa thanh toán</item>
+        <item>Đã thanh toán</item>
+    </string-array>
 </resources>

@@ -1,6 +1,6 @@
 package com.example.foodstore.Food;
 
-import android.content.Intent;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -10,10 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.example.foodstore.CartShopping.DataCartShopping;
 import com.example.foodstore.MainActivity;
 import com.example.foodstore.R;
 import java.text.NumberFormat;
@@ -23,9 +22,11 @@ import java.util.Locale;
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 
     private ArrayList<DataFood> dataFoods;
+    private Context mContext;
 
-    public FoodAdapter(ArrayList<DataFood> dataFoods) {
+    public FoodAdapter(ArrayList<DataFood> dataFoods, Context context) {
         this.dataFoods = dataFoods;
+        this.mContext = context;
     }
 
     @NonNull
@@ -38,7 +39,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 //        chuyển kiểu int thành kiểu chuổi tiền tệ
         Locale localeVN = new Locale("vi", "VN");
         NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
@@ -50,20 +51,35 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         holder.ivFood.setImageBitmap(imgBitMap);
         holder.tvFood.setText(dataFoods.get(position).getNameFood());
         holder.tvPrice.setText(price);
-        holder.btnAdd.setOnClickListener(new View.OnClickListener() {
+        holder.btnDatMon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int index = Integer.parseInt((String) holder.tvNumber.getText());
-                index++;
-                holder.tvNumber.setText(String.valueOf(index));
-            }
-        });
-        holder.btnMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int index = Integer.parseInt((String) holder.tvNumber.getText());
-                if (index > 0) index--;
-                holder.tvNumber.setText(String.valueOf(index));
+                if(MainActivity.giohang.size() > 0) {
+                    boolean check = false;
+                    for (int i = 0 ; i < MainActivity.giohang.size() ; i++) {
+                        if (MainActivity.giohang.get(i).getIdFood() == dataFoods.get(position).getIdFood()) {
+                            MainActivity.giohang.get(i).setSoluong(MainActivity.giohang.get(i).getSoluong() + 1);
+                            check = true;
+                        }
+                    }
+                    if (check == false) {
+                        MainActivity.giohang.add(new DataCartShopping(
+                                dataFoods.get(position).getIdFood(),
+                                dataFoods.get(position).getImageFood(),
+                                dataFoods.get(position).getNameFood(),
+                                dataFoods.get(position).getPrice(),
+                                1
+                        ));
+                    }
+                }else {
+                    MainActivity.giohang.add(new DataCartShopping(
+                            dataFoods.get(position).getIdFood(),
+                            dataFoods.get(position).getImageFood(),
+                            dataFoods.get(position).getNameFood(),
+                            dataFoods.get(position).getPrice(),
+                            1
+                    ));
+                }
             }
         });
     }
@@ -77,19 +93,15 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 
         ImageView ivFood;
         TextView tvFood;
-        Button btnAdd;
-        Button btnMinus;
-        TextView tvNumber;
         TextView tvPrice;
+        Button btnDatMon;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
-            ivFood = (ImageView) itemView.findViewById(R.id.image_food);
-            tvFood = (TextView) itemView.findViewById(R.id.name_food);
-            tvNumber = (TextView) itemView.findViewById(R.id.tv_number);
-            tvPrice = (TextView) itemView.findViewById(R.id.tv_price);
-            btnAdd = (Button) itemView.findViewById(R.id.btn_add);
-            btnMinus = (Button) itemView.findViewById(R.id.btn_minus);
+            ivFood = itemView.findViewById(R.id.image_food);
+            tvFood = itemView.findViewById(R.id.name_food);
+            tvPrice = itemView.findViewById(R.id.tv_price);
+            btnDatMon = itemView.findViewById(R.id.btn_add);
 
         }
     }

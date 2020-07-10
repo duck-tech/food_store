@@ -35,6 +35,4 @@ public class CategoryAdapter extends FragmentStatePagerAdapter {
         return list.get(position).getNameCate();
     }
 
-
-
 }

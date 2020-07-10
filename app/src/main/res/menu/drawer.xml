@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/list_order" android:title="Danh sách đặt hàng" android:icon="@drawable/ic_format_list_bulleted_black_24dp" />
+    <item android:id="@+id/about_us" android:title="About us" android:icon="@drawable/ic_share_black_24dp"/>
+    <item android:id="@+id/exit" android:title="Log out" android:icon="@drawable/exit"/>
+</menu>

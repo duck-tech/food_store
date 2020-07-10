@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_food_item"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_marginRight="10dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"/>
+
+    <TextView
+        android:id="@+id/tv_name_food_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Khoai tay chiên"
+        android:layout_toRightOf="@+id/image_food_item"
+        android:textStyle="bold"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_below="@+id/tv_name_food_item"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/image_food_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số lượng đặt"/>
+
+    <TextView
+        android:layout_below="@+id/textview2"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/image_food_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đơn giá:"/>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_giamsl"
+            android:text="@string/btn_minus"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/circle_button"/>
+
+        <TextView
+            android:id="@+id/tv_soluong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <Button
+            android:id="@+id/btn_tangsl"
+            android:text="@string/btn_sum"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/circle_button"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_price_food_item"
+        android:layout_below="@+id/layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="100000" />
+
+</RelativeLayout>

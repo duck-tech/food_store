@@ -61,7 +61,7 @@ public class CategoryFragment extends Fragment {
 
     private void initView() {
         recyclerView = mView.findViewById(R.id.recyclerview);
-        foodAdapter = new FoodAdapter(allFoods);
+        foodAdapter = new FoodAdapter(allFoods, mContext);
         recyclerView.setAdapter(foodAdapter);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());

@@ -24,57 +24,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/name_food"
         android:layout_toRightOf="@id/image_food"
-        android:gravity="center"
+        android:gravity="right"
         android:layout_alignParentRight="true"
         android:textStyle="bold"
         android:text="50.000 VNĐ"/>
 
-    <RelativeLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/circle_button"
+        android:layout_below="@+id/tv_price"
         android:layout_toRightOf="@+id/image_food"
-        android:layout_below="@id/name_food"
-        android:layout_marginTop="30dp">
-
-        <TextView
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/string_number_order"/>
-
-        <Button
-            android:id="@+id/btn_add"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:background="@drawable/circle_button"
-            android:layout_toLeftOf="@+id/tv_number"
-            android:text="@string/btn_add"
-            android:layout_marginRight="15dp"
-            android:textSize="15dp"
-            />
-
-        <TextView
-            android:id="@+id/tv_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/btn_minus"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:layout_marginRight="15dp"
-            android:text="0"/>
-
-        <Button
-            android:id="@+id/btn_minus"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:background="@drawable/circle_button"
-            android:layout_alignParentRight="true"
-            android:text="@string/btn_minus"
-            android:textSize="15dp" />
-
-    </RelativeLayout>
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="60dp"
+        android:text="@string/btn_add"
+        android:layout_marginRight="15dp"
+        android:textSize="15dp"
+        />
 
 </RelativeLayout>
