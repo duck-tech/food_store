@@ -12,19 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ListOrder.ListOrderActivity" android:label="Danh sách đặt hàng"></activity>
-        <activity android:name=".CartShopping.CartShoppingActivity" />
-        <activity android:name=".AboutUs.AboutAcitivity" />
-        <activity android:name=".Registration.RegistrationActivity" />
-        <activity android:name=".Login.LoginActivity"></activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ListOrder.Dialog" />
+        <activity
+            android:name=".ListOrder.ListOrderActivity"
+            android:label="Danh sách đặt hàng" />
+        <activity android:name=".CartShopping.CartShoppingActivity" />
+        <activity android:name=".AboutUs.AboutAcitivity" />
+        <activity android:name=".Registration.RegistrationActivity" />
+        <activity android:name=".Login.LoginActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+
         </activity>
     </application>
 

@@ -1,18 +1,23 @@
 package com.example.foodstore.ListOrder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.foodstore.Food.FoodAdapter;
+import com.example.foodstore.AboutUs.AboutAcitivity;
+import com.example.foodstore.Login.LoginActivity;
+import com.example.foodstore.MainActivity;
 import com.example.foodstore.R;
-
 import java.util.ArrayList;
 
 public class ListOrderAdapter extends RecyclerView.Adapter<ListOrderAdapter.ViewHolder> {
@@ -35,7 +40,7 @@ public class ListOrderAdapter extends RecyclerView.Adapter<ListOrderAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.tvStt.setText(position+1+"");
         holder.tvNameTable.setText(list.get(position).getNameTable());
         holder.tvDate.setText(list.get(position).getDate());
@@ -47,6 +52,18 @@ public class ListOrderAdapter extends RecyclerView.Adapter<ListOrderAdapter.View
             holder.tvStatus.setText("Chưa thanh toán");
             holder.tvStatus.setTextColor(Color.RED);
         }
+        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext , Dialog.class);
+                intent.putExtra("id" , list.get(position).getId());
+                intent.putExtra("name" , list.get(position).getNameTable());
+                intent.putExtra("status" , list.get(position).getStatus());
+                intent.putExtra("date" , list.get(position).getDate());
+                intent.putExtra("total" , list.get(position).getTotal());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -61,6 +78,7 @@ public class ListOrderAdapter extends RecyclerView.Adapter<ListOrderAdapter.View
         TextView tvDate;
         TextView tvTotal;
         TextView tvStatus;
+        LinearLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +87,9 @@ public class ListOrderAdapter extends RecyclerView.Adapter<ListOrderAdapter.View
             tvDate = itemView.findViewById(R.id.tv_date);
             tvTotal = itemView.findViewById(R.id.tv_total);
             tvStatus = itemView.findViewById(R.id.tv_status);
+            parentLayout = itemView.findViewById(R.id.parent_layout);
+
         }
+
     }
 }

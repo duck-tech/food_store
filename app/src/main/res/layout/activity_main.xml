@@ -36,7 +36,7 @@
                     android:fontFamily="cursive"
                     android:textSize="30sp"/>
             </androidx.appcompat.widget.Toolbar>
-
+<!--scrollable tạo nhiều tab trên tablayout-->
             <com.google.android.material.tabs.TabLayout
                 app:tabMode="scrollable"
                 android:id="@+id/tabs"

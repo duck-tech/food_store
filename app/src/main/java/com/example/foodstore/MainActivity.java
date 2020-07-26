@@ -1,6 +1,7 @@
 package com.example.foodstore;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -51,7 +53,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         initView();
+    }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
     }
 
     private void initView() {
@@ -80,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getData(urlGetCate);
     }
 
+//    lấy dữ liệu category
     private void getData(String url) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET , url , null ,
@@ -95,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }catch (JSONException e) {
                         e.printStackTrace();
                     }
+
                     categoryAdapter();
                 }
 
@@ -110,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         );
         requestQueue.add(jsonArrayRequest);
     }
-
+//  hiển thị list thức ăn khi chuyển tab
     private void categoryAdapter() {
         categoryAdapter = new CategoryAdapter(getSupportFragmentManager() , this , list);
         viewPager.setAdapter(categoryAdapter);
@@ -119,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//       chọn item trong navigation
         switch (menuItem.getItemId()) {
             case R.id.list_order:
                 startActivity(new Intent(MainActivity.this , ListOrderActivity.class));
@@ -133,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+//    hàm onclick của floatingActionButton
     public void intentItem(View view) {
         Intent intent = new Intent(MainActivity.this , CartShoppingActivity.class);
         startActivity(intent);
